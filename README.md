@@ -1,4 +1,4 @@
-# artflipsaver-win
+# artflipsaver-win [![Build status](https://ci.appveyor.com/api/projects/status/uxxv0xdud2juspgx?svg=true)](https://ci.appveyor.com/project/gbranchaud/artflipsaver-win)
 It's like the iTunes album art screensaver, but for Rdio.
 
 ## What?
@@ -15,8 +15,7 @@ This is a Windows screensaver that displays your top Rdio albums.
 * get an app that shows a config dialog
 * get an app that shows the same web page on each monitor (no blank screens)
 * tests/tdd!
-* can we get CI?
 * write required + build instructions in readme.md (C#, min Win ver., one-command build process, etc.)
 * add screenshot of working screensaver in readme.md
-* figure out distribution (where is the .scr file hosted?)
+* figure out distribution (where is the .scr file hosted? appveyor?)
 * figure out installation (most likely just a gif that shows a drag&drop of the .scr in the /windows folder)

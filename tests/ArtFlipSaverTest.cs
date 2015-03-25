@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using artflipsaver_win32;
+using artflipsaver_win;
 
 namespace tests
 {

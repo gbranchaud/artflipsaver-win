@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace artflipsaver_win32
+namespace artflipsaver_win
 {
     public class ArtFlipSaver
     {

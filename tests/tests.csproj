@@ -54,9 +54,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\artflipsaver-win32\artflipsaver-win32.csproj">
+    <ProjectReference Include="..\artflipsaver-win32\artflipsaver-win.csproj">
       <Project>{aef63680-c65f-4bbc-9798-046f61cd24c5}</Project>
-      <Name>artflipsaver-win32</Name>
+      <Name>artflipsaver-win</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

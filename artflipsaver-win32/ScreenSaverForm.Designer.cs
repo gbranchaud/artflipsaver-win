@@ -1,4 +1,4 @@
-﻿namespace artflipsaver_win32
+﻿namespace artflipsaver_win
 {
     partial class ScreenSaverForm
     {

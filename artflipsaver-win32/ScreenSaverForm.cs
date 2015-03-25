@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace artflipsaver_win32
+namespace artflipsaver_win
 {
     public partial class ScreenSaverForm : Form
     {

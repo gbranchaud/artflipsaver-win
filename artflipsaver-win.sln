@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "artflipsaver-win", "artflipsaver-win32\artflipsaver-win.csproj", "{AEF63680-C65F-4BBC-9798-046F61CD24C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "artflipsaver-win", "artflipsaver-win\artflipsaver-win.csproj", "{AEF63680-C65F-4BBC-9798-046F61CD24C5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tests", "tests\tests.csproj", "{D505394F-2F5F-4425-A700-450EC31FFFB2}"
 EndProject

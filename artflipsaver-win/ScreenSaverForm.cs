@@ -15,6 +15,9 @@ namespace artflipsaver_win
         public ScreenSaverForm()
         {
             InitializeComponent();
+
+            browser.Url = new Uri("http://endenizen.net/artflip/");
         }
+
     }
 }

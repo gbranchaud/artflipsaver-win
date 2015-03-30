@@ -28,12 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.browser = new System.Windows.Forms.WebBrowser();
+            this.SuspendLayout();
+            // 
+            // browser
+            // 
+            this.browser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.browser.Location = new System.Drawing.Point(0, 0);
+            this.browser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.browser.Name = "browser";
+            this.browser.Size = new System.Drawing.Size(284, 261);
+            this.browser.TabIndex = 0;
+            this.browser.WebBrowserShortcutsEnabled = false;
+            // 
+            // ScreenSaverForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.browser);
+            this.Name = "ScreenSaverForm";
+            this.Text = "artflipsaver poc";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.WebBrowser browser;
     }
 }
 

@@ -15,10 +15,22 @@ namespace artflipsaver_win
                 return 1;
             }
 
+            // todo: args parsing
+
+            new ArtFlipSaver().startScreenSaver();
+
+            return 0;
+        }
+
+        private ArtFlipSaver()
+        {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ScreenSaverForm());
-            return 0;
+        }
+
+        private void startScreenSaver()
+        {
+            Application.Run(new WebBrowserForm("http://endenizen.net/artflip/"));
         }
     }
 }

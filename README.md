@@ -5,7 +5,7 @@ It's like the iTunes album art screensaver, but for Rdio.
 This is a Windows screensaver that displays your top Rdio albums.
 
 ## Thanks
-* This project is a wrapper around the endenizen/artflip. Thanks to his hard work.
+* This project is a wrapper around endenizen/artflip#head . Thanks to his hard work.
 * A few refs that proved very useful:
   * [Creating a Screen Saver with C#](http://www.harding.edu/fmccown/screensaver/screensaver.html)
   * [Web Browser Control – Specifying the IE Version](http://weblog.west-wind.com/posts/2011/May/21/Web-Browser-Control-Specifying-the-IE-Version)

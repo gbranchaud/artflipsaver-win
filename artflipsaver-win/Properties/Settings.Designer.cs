@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace artflipsaver_win.Properties {
+namespace ArtFlipSaver.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

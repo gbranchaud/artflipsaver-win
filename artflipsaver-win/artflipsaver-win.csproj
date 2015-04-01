@@ -7,7 +7,7 @@
     <ProjectGuid>{AEF63680-C65F-4BBC-9798-046F61CD24C5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>artflipsaver_win</RootNamespace>
+    <RootNamespace>ArtFlipSaver</RootNamespace>
     <AssemblyName>artflipsaver-win</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -62,11 +62,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArtFlipSaver.cs" />
-    <Compile Include="WebBrowserForm.cs">
+    <Compile Include="ScreenSaverLauncher.cs" />
+    <Compile Include="Forms\ScreenSaver.cs" />
+    <Compile Include="Forms\BrowserEmulationModeSetter.cs" />
+    <Compile Include="Registry\IRegistryWriter.cs" />
+    <Compile Include="Registry\RegistryWriter.cs" />
+    <Compile Include="Forms\WebBrowserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WebBrowserForm.Designer.cs">
+    <Compile Include="Forms\WebBrowserForm.Designer.cs">
       <DependentUpon>WebBrowserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EntryPoint.cs" />
@@ -81,7 +85,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="WebBrowserForm.resx">
+    <EmbeddedResource Include="Forms\WebBrowserForm.resx">
       <DependentUpon>WebBrowserForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

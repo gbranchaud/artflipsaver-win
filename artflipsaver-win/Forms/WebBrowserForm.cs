@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace artflipsaver_win
+namespace ArtFlipSaver.Forms
 {
     public partial class WebBrowserForm : Form
     {

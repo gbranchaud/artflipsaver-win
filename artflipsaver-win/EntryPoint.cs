@@ -4,14 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace artflipsaver_win
+namespace ArtFlipSaver
 {
-    static class EntryPoint
+    public class EntryPoint
     {
         [STAThread]
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
-            ArtFlipSaver.Launch(args);
+            return ScreenSaverLauncher.Launch(args);
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using artflipsaver_win;
+using ArtFlipSaver;
 
-namespace tests
+namespace Tests
 {
     [TestClass]
     public class ArtFlipSaverTest
@@ -10,7 +10,7 @@ namespace tests
         [TestMethod]
         public void Returns1WhenUnknownArgIsPassed()
         {
-            int exitCode = ArtFlipSaver.Launch(new string[] { "invalid-arg" });
+            int exitCode = ScreenSaverLauncher.Launch(new string[] { "invalid-arg" });
             Assert.AreEqual(1, exitCode);
         }
     }

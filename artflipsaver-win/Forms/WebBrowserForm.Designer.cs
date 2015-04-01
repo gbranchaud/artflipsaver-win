@@ -1,4 +1,4 @@
-﻿namespace artflipsaver_win
+﻿namespace ArtFlipSaver.Forms
 {
     partial class WebBrowserForm
     {

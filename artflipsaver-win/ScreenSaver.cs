@@ -1,4 +1,5 @@
 ﻿using ArtFlipSaver.Forms;
+using System;
 using System.Windows.Forms;
 
 namespace ArtFlipSaver
@@ -14,8 +15,7 @@ namespace ArtFlipSaver
 
         public void startScreenSaver()
         {
-            string appName = "artflipsaver-win.vshost.exe"; // todo: get real name of app
-            browserEmulationModeSetter.MakeAppUseIE11(appName);
+            browserEmulationModeSetter.MakeAppUseIE11(AppDomain.CurrentDomain.FriendlyName);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

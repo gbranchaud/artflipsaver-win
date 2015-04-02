@@ -9,23 +9,29 @@ namespace Tests.Forms
     public class BrowserEmulationModeSetterTest
     {
         [TestMethod]
-        public void WritesTheRightRegistryValueSoAppUsesIE11()
+        public void AddsTheValueWhenItIsNotPresent()
         {
-            new BrowserEmulationModeSetter().MakeAppUseIE11("test-app.exe");
+            DeleteBrowserEmulationValue("new-value.exe");
 
-            int appEmulationLevel = (int)Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_BROWSER_EMULATION").GetValue("test-app.exe");
-            Assert.AreEqual(11001, appEmulationLevel);
+            new BrowserEmulationModeSetter().MakeAppUseIE11("new-value.exe");
 
-            DeleteBrowserEmulationValue("test-app.exe");
+            int valueForTheApp = (int)Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_BROWSER_EMULATION").GetValue("new-value.exe");
+            Assert.AreEqual(11001, valueForTheApp);
+
+            DeleteBrowserEmulationValue("new-value.exe");
         }
 
         [TestMethod]
-        public void ReturnsTrueWhenAValueIsWritten()
+        public void UpdatesAnExistingRegistryValue()
         {
-            bool valueHasBeenWritten = new BrowserEmulationModeSetter().MakeAppUseIE11("new-entry.exe");
-            Assert.IsTrue(valueHasBeenWritten);
+            Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_BROWSER_EMULATION").SetValue("existing-value.exe", "BAD_VALUE", RegistryValueKind.String);
 
-            DeleteBrowserEmulationValue("new-entry.exe");
+            new BrowserEmulationModeSetter().MakeAppUseIE11("existing-value.exe");
+
+            int valueForTheApp = (int)Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_BROWSER_EMULATION").GetValue("existing-value.exe");
+            Assert.AreEqual(11001, valueForTheApp);
+
+            DeleteBrowserEmulationValue("existing-value.exe");
         }
 
         private static void DeleteBrowserEmulationValue(string appName)
@@ -33,7 +39,7 @@ namespace Tests.Forms
             var browserEmulation = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_BROWSER_EMULATION", true);
             if (browserEmulation != null)
             {
-                browserEmulation.DeleteValue(appName);
+                browserEmulation.DeleteValue(appName, false);
             }
         }
     }

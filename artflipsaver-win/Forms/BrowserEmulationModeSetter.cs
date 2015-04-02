@@ -1,4 +1,4 @@
-﻿using ArtFlipSaver.Registry;
+﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,16 +8,19 @@ namespace ArtFlipSaver.Forms
 {
     public class BrowserEmulationModeSetter
     {
-        private IRegistryWriter registryWriter;
-
-        public BrowserEmulationModeSetter(IRegistryWriter registryWriter)
+        public bool MakeAppUseIE11(String appName)
         {
-            this.registryWriter = registryWriter;
-        }
+            RegistryKey ieMain = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Internet Explorer\MAIN\", true);
+            RegistryKey browserEmulation = ieMain.CreateSubKey(@"FeatureControl\FEATURE_BROWSER_EMULATION");
 
-        public void setToIE11()
-        {
-            registryWriter.WriteDword(@"SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_BROWSER_EMULATION", "artflipsaver-win.scr", 11001);
+            var appValue = browserEmulation.GetValue(appName);
+            if (appValue != null)
+            {
+                return false;
+            }
+
+            browserEmulation.SetValue(appName, 11001, RegistryValueKind.DWord);
+            return true;
         }
     }
 }

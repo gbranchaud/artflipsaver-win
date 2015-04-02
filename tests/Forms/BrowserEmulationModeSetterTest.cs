@@ -1,7 +1,7 @@
 ﻿using ArtFlipSaver.Forms;
-using ArtFlipSaver.Registry;
 using FakeItEasy;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.Win32;
 
 namespace Tests.Forms
 {
@@ -9,13 +9,32 @@ namespace Tests.Forms
     public class BrowserEmulationModeSetterTest
     {
         [TestMethod]
-        public void callsTheRegistryWriterWithIE11DataValue()
+        public void WritesTheRightRegistryValueSoAppUsesIE11()
         {
-            var registryWriter = A.Fake<IRegistryWriter>();
+            new BrowserEmulationModeSetter().MakeAppUseIE11("test-app.exe");
 
-            new BrowserEmulationModeSetter(registryWriter).setToIE11();
+            int appEmulationLevel = (int)Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_BROWSER_EMULATION").GetValue("test-app.exe");
+            Assert.AreEqual(11001, appEmulationLevel);
 
-            A.CallTo(() => registryWriter.WriteDword(A<string>._, A<string>._, 11001)).MustHaveHappened();
+            DeleteBrowserEmulationValue("test-app.exe");
+        }
+
+        [TestMethod]
+        public void ReturnsTrueWhenAValueIsWritten()
+        {
+            bool valueHasBeenWritten = new BrowserEmulationModeSetter().MakeAppUseIE11("new-entry.exe");
+            Assert.IsTrue(valueHasBeenWritten);
+
+            DeleteBrowserEmulationValue("new-entry.exe");
+        }
+
+        private static void DeleteBrowserEmulationValue(string appName)
+        {
+            var browserEmulation = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_BROWSER_EMULATION", true);
+            if (browserEmulation != null)
+            {
+                browserEmulation.DeleteValue(appName);
+            }
         }
     }
 }

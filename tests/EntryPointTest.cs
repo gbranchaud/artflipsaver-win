@@ -5,12 +5,12 @@ using ArtFlipSaver;
 namespace Tests
 {
     [TestClass]
-    public class ArtFlipSaverTest
+    public class EntryPointTest
     {
         [TestMethod]
         public void Returns1WhenUnknownArgIsPassed()
         {
-            int exitCode = ScreenSaverLauncher.Launch(new string[] { "invalid-arg" });
+            int exitCode = EntryPoint.Launch(new string[] { "invalid-arg" });
             Assert.AreEqual(1, exitCode);
         }
     }

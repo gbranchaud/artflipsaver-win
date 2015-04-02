@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArtFlipSaver.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,7 +12,19 @@ namespace ArtFlipSaver
         [STAThread]
         static int Main(string[] args)
         {
-            return ScreenSaverLauncher.Launch(args);
+            return Launch(args);
+        }
+
+        public static int Launch(string[] args)
+        {
+            if (args.Length != 0)
+            {
+                return 1; // todo: args parsing
+            }
+
+            new ScreenSaver(new BrowserEmulationModeSetter()).startScreenSaver();
+
+            return 0;
         }
     }
 }

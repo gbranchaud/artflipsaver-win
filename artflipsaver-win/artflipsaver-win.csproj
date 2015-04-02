@@ -62,11 +62,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ScreenSaverLauncher.cs" />
-    <Compile Include="Forms\ScreenSaver.cs" />
+    <Compile Include="ScreenSaver.cs" />
     <Compile Include="Forms\BrowserEmulationModeSetter.cs" />
-    <Compile Include="Registry\IRegistryWriter.cs" />
-    <Compile Include="Registry\RegistryWriter.cs" />
     <Compile Include="Forms\WebBrowserForm.cs">
       <SubType>Form</SubType>
     </Compile>

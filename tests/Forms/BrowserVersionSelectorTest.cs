@@ -6,7 +6,7 @@ using Microsoft.Win32;
 namespace Tests.Forms
 {
     [TestClass]
-    public class BrowserVersionSelector
+    public class BrowserVersionSelectorTest
     {
         [TestMethod]
         public void AddsTheValueWhenItIsNotPresent()

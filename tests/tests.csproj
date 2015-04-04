@@ -53,9 +53,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ArgumentsParserTest.cs" />
     <Compile Include="EntryPointTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\BrowserVersionSelector.cs" />
+    <Compile Include="Forms\BrowserVersionSelectorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\artflipsaver-win\artflipsaver-win.csproj">

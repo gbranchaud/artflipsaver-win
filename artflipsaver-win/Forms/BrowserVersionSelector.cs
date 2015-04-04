@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ArtFlipSaver.Forms
 {
-    public class BrowserEmulationModeSetter
+    public class BrowserVersionSelector
     {
         public void MakeAppUseIE11(String appName)
         {

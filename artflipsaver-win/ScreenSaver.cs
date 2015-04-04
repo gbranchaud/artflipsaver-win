@@ -6,16 +6,16 @@ namespace ArtFlipSaver
 {
     public class ScreenSaver
     {
-        private BrowserEmulationModeSetter browserEmulationModeSetter;
+        private BrowserVersionSelector browserVersionSelector;
 
-        public ScreenSaver(BrowserEmulationModeSetter browserEmulationModeSetter)
+        public ScreenSaver(BrowserVersionSelector browserVersionSelector)
         {
-            this.browserEmulationModeSetter = browserEmulationModeSetter;
+            this.browserVersionSelector = browserVersionSelector;
         }
 
         public void startScreenSaver()
         {
-            browserEmulationModeSetter.MakeAppUseIE11(AppDomain.CurrentDomain.FriendlyName);
+            browserVersionSelector.MakeAppUseIE11(AppDomain.CurrentDomain.FriendlyName);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

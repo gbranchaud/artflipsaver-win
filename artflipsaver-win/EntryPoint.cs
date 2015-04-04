@@ -22,7 +22,7 @@ namespace ArtFlipSaver
                 return 1; // todo: args parsing
             }
 
-            new ScreenSaver(new BrowserEmulationModeSetter()).startScreenSaver();
+            new ScreenSaver(new BrowserVersionSelector()).startScreenSaver();
 
             return 0;
         }

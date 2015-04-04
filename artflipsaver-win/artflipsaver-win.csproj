@@ -63,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ScreenSaver.cs" />
-    <Compile Include="Forms\BrowserEmulationModeSetter.cs" />
+    <Compile Include="Forms\BrowserVersionSelector.cs" />
     <Compile Include="Forms\WebBrowserForm.cs">
       <SubType>Form</SubType>
     </Compile>

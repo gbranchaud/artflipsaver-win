@@ -62,7 +62,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArgumentsParser.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="ConfigLoader.cs" />
     <Compile Include="ScreenSaver.cs" />
     <Compile Include="Forms\BrowserVersionSelector.cs" />
     <Compile Include="Forms\WebBrowserForm.cs">

@@ -80,5 +80,29 @@ namespace Tests.Configs
 
             Assert.IsNull(c);
         }
+
+        [TestMethod]
+        public void TestModeAllowsForMoreArgs()
+        {
+            Config c = new ConfigLoader().FromArgs(new string[] { "/S", "2222", "-test" });
+
+            Assert.IsNotNull(c);
+        }
+
+        [TestMethod]
+        public void AppNameIsTakenFromTheCurrentDomain()
+        {
+            Config c = new ConfigLoader().FromArgs();
+
+            Assert.AreEqual(AppDomain.CurrentDomain.FriendlyName, c.ApplicationName);
+        }
+
+        [TestMethod]
+        public void WhenInTestModeAppNameIsHardCoded()
+        {
+            Config c = new ConfigLoader().FromArgs(new string[] { "-test" });
+
+            Assert.AreEqual("vstest.executionengine.x86.exe", c.ApplicationName);
+        }
     }
 }

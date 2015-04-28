@@ -9,25 +9,36 @@ namespace ArtFlipSaver.Configs
     {
         public Config FromArgs(params string[] args)
         {
-            if (args.Length > 2)
+            if (ArgumentsAreInvalid(args))
             {
                 return null;
             }
 
-            if (args.Length == 0)
-            {
-                return new Config(FormType.Config, 0);
-            }
+            FormType formToShow = GetFormToShow(args);
+            int parentWindowHandle = GetParentWindowHandle(args);
+            string applicationName = GetApplicationName(args);
+            return new Config(formToShow, parentWindowHandle, applicationName);
+        }
 
-            FormType formToShow = FormType.Config;
-            int parentWindowHandle = 0;
+        private bool ArgumentsAreInvalid(string[] args)
+        {
+            return args.Length > 3 || (args.Length == 3 && !args.Contains("-test", StringComparer.OrdinalIgnoreCase));
+        }
 
-            string modeSwitch = args[0];
+        private FormType GetFormToShow(string[] args)
+        {
+            string modeSwitch = args.Length == 0 ? "" : args[0];
             if (modeSwitch.StartsWith("/s", StringComparison.OrdinalIgnoreCase) || modeSwitch.StartsWith("/p", StringComparison.OrdinalIgnoreCase))
             {
-                formToShow = FormType.ScreenSaver;
+                return FormType.ScreenSaver;
             }
+            return FormType.Config;
+        }
 
+        private int GetParentWindowHandle(string[] args)
+        {
+            int parentWindowHandle = 0;
+            string modeSwitch = args.Length == 0 ? "" : args[0];
             if (modeSwitch.Contains(":"))
             {
                 string rawParentWindowHandle = modeSwitch.Split(new char[] { ':' })[1];
@@ -37,8 +48,16 @@ namespace ArtFlipSaver.Configs
             {
                 int.TryParse(args[1], out parentWindowHandle);
             }
+            return parentWindowHandle;
+        }
 
-            return new Config(formToShow, parentWindowHandle);
+        private string GetApplicationName(string[] args)
+        {
+            if (args.Contains("-test", StringComparer.OrdinalIgnoreCase))
+            {
+                return "vstest.executionengine.x86.exe";
+            }
+            return AppDomain.CurrentDomain.FriendlyName;
         }
     }
 }

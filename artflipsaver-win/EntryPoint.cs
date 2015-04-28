@@ -24,7 +24,7 @@ namespace ArtFlipSaver
                 return 1;
             }
 
-            new ScreenSaver(new BrowserVersionSelector()).startScreenSaver();
+            new ScreenSaver(new BrowserVersionSelector(), config.ApplicationName).startScreenSaver();
 
             return 0;
         }

@@ -8,11 +8,13 @@ namespace ArtFlipSaver
     {
         private BrowserVersionSelector browserVersionSelector;
         private string applicationName;
+        private Func<Form> getFormToShow;
 
-        public ScreenSaver(BrowserVersionSelector browserVersionSelector, string applicationName)
+        public ScreenSaver(BrowserVersionSelector browserVersionSelector, string applicationName, Func<Form> getFormToShow)
         {
             this.browserVersionSelector = browserVersionSelector;
             this.applicationName = applicationName;
+            this.getFormToShow = getFormToShow;
         }
 
         public void startScreenSaver()
@@ -22,7 +24,7 @@ namespace ArtFlipSaver
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new WebBrowserForm("http://endenizen.net/artflip/"));
+            Application.Run(getFormToShow.Invoke());
         }
     }
 }

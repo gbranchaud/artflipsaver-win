@@ -57,13 +57,20 @@ namespace Tests.Configs
         }
 
         [TestMethod]
-        [Ignore]
-        public void CanParseTheParentHandleWhenPassedWithAColon()
+        public void CanParseTheParentHandleWhenColonIsUsed()
         {
             Config c = new ConfigLoader().FromArgs(new string[] { "/p:24344" });
 
             Assert.AreEqual(FormType.ScreenSaver, c.WindowToShow);
             Assert.AreEqual(24344, c.ParentWindowHandle);
+        }
+
+        [TestMethod]
+        public void ShowsTheScreenSaverFormWhateverTheCasingOfSlashS()
+        {
+            Config c = new ConfigLoader().FromArgs(new string[] { "/S" });
+
+            Assert.AreEqual(FormType.ScreenSaver, c.WindowToShow);
         }
     }
 }

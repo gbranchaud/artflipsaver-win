@@ -1,4 +1,5 @@
-﻿using ArtFlipSaver.Forms;
+﻿using ArtFlipSaver.Configs;
+using ArtFlipSaver.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,10 @@ namespace ArtFlipSaver
 
         public static int Launch(string[] args)
         {
-            if (args.Length != 0)
+            var config = new ConfigLoader().FromArgs(args);
+            if (config == null)
             {
-                return 1; // todo: args parsing
+                return 1;
             }
 
             new ScreenSaver(new BrowserVersionSelector()).startScreenSaver();

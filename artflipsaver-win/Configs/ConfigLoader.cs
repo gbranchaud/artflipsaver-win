@@ -9,13 +9,18 @@ namespace ArtFlipSaver.Configs
     {
         public Config FromArgs(params string[] args)
         {
-            FormType formToShow = FormType.Config;
-            int parentWindowHandle = 0;
+            if (args.Length > 2)
+            {
+                return null;
+            }
 
             if (args.Length == 0)
             {
-                return new Config(formToShow, parentWindowHandle);
+                return new Config(FormType.Config, 0);
             }
+
+            FormType formToShow = FormType.Config;
+            int parentWindowHandle = 0;
 
             string modeSwitch = args[0];
             if (modeSwitch.StartsWith("/s", StringComparison.OrdinalIgnoreCase) || modeSwitch.StartsWith("/p", StringComparison.OrdinalIgnoreCase))

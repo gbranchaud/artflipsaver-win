@@ -8,9 +8,9 @@ namespace Tests
     public class EntryPointTest
     {
         [TestMethod]
-        public void Returns1WhenUnknownArgIsPassed()
+        public void Returns1WhenTooMuchArgsArePassed()
         {
-            int exitCode = EntryPoint.Launch(new string[] { "invalid-arg" });
+            int exitCode = EntryPoint.Launch(new string[] { "invalid", "number", "of", "args" });
             Assert.AreEqual(1, exitCode);
         }
     }

@@ -72,5 +72,13 @@ namespace Tests.Configs
 
             Assert.AreEqual(FormType.ScreenSaver, c.WindowToShow);
         }
+
+        [TestMethod]
+        public void ReturnsNullWhenTooManyArgsArePassed()
+        {
+            Config c = new ConfigLoader().FromArgs(new string[] { "/S", "2222", "333" });
+
+            Assert.IsNull(c);
+        }
     }
 }

@@ -43,6 +43,7 @@
             this.browser.Size = new System.Drawing.Size(284, 261);
             this.browser.TabIndex = 0;
             this.browser.WebBrowserShortcutsEnabled = false;
+            this.browser.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.browser_PreviewKeyDown);
             // 
             // WebBrowserForm
             // 
@@ -52,6 +53,7 @@
             this.Controls.Add(this.browser);
             this.Name = "WebBrowserForm";
             this.Text = "artflipsaver poc";
+            this.Load += new System.EventHandler(this.WebBrowserForm_Load);
             this.ResumeLayout(false);
 
         }

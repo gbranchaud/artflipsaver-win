@@ -13,8 +13,8 @@ This is a Windows screensaver that displays your top Rdio albums.
 ## TODO
 * [x] show the web page in a form
 * [x] render the web page using IE11 engine (both when debugging in VS & standalone)
-* [ ] make the screensaver fullscreen
-* [ ] hook events (mousemove + keyboard) to it
+* [x] make the screensaver fullscreen
+* [ ] hook events (mousemove ~~+ keyboard~~) to it
 * [ ] show config dialog (with rdio username only?)
 * [ ] save the config to the registry (or appdata?)
 * [ ] support multi-monitor setup (no blank screens)

@@ -71,7 +71,7 @@
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ScreenSaver.cs" />
-    <Compile Include="Forms\BrowserVersionSelector.cs" />
+    <Compile Include="Utils\BrowserVersionSelector.cs" />
     <Compile Include="Forms\WebBrowserForm.cs">
       <SubType>Form</SubType>
     </Compile>

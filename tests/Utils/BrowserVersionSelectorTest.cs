@@ -1,9 +1,10 @@
 ﻿using ArtFlipSaver.Forms;
+using ArtFlipSaver.Utils;
 using FakeItEasy;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Win32;
 
-namespace Tests.Forms
+namespace Tests.Utils
 {
     [TestClass]
     public class BrowserVersionSelectorTest

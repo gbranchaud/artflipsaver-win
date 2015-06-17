@@ -27,7 +27,7 @@ namespace ArtFlipSaver
 
             Func<Form> getFormToShow = config.WindowToShow == FormType.ScreenSaver ? () => new WebBrowserForm("http://endenizen.net/artflip/") : (Func<Form>)(() => new SettingsForm());
 
-            new ScreenSaver(new BrowserVersionSelector(), config.ApplicationName, getFormToShow).startScreenSaver();
+            new ScreenSaver(new BrowserVersionSelector(), config.ApplicationName, new NativeApplication(), getFormToShow).startScreenSaver();
 
             return 0;
         }

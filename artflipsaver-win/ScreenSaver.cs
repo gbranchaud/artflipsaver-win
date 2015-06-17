@@ -1,5 +1,4 @@
-﻿using ArtFlipSaver.Forms;
-using ArtFlipSaver.Utils;
+﻿using ArtFlipSaver.Utils;
 using System;
 using System.Windows.Forms;
 
@@ -10,22 +9,20 @@ namespace ArtFlipSaver
         private BrowserVersionSelector browserVersionSelector;
         private string applicationName;
         private Func<Form> getFormToShow;
+        private IApp app;
 
-        public ScreenSaver(BrowserVersionSelector browserVersionSelector, string applicationName, Func<Form> getFormToShow)
+        public ScreenSaver(BrowserVersionSelector browserVersionSelector, string applicationName, IApp app, Func<Form> getFormToShow)
         {
             this.browserVersionSelector = browserVersionSelector;
             this.applicationName = applicationName;
             this.getFormToShow = getFormToShow;
+            this.app = app;
         }
 
         public void startScreenSaver()
         {
             browserVersionSelector.MakeAppUseIE11(applicationName);
-
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            Application.Run(getFormToShow.Invoke());
+            app.Run(getFormToShow);
         }
     }
 }

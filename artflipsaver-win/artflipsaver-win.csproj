@@ -70,6 +70,8 @@
     <Compile Include="Forms\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\IApp.cs" />
+    <Compile Include="Utils\NativeApplication.cs" />
     <Compile Include="ScreenSaver.cs" />
     <Compile Include="Utils\BrowserVersionSelector.cs" />
     <Compile Include="Forms\WebBrowserForm.cs">

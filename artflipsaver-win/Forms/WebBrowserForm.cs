@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
+using System.Security;
 using System.Windows.Forms;
 
 namespace ArtFlipSaver.Forms
@@ -38,7 +32,7 @@ namespace ArtFlipSaver.Forms
             this.WindowState = FormWindowState.Maximized;
         }
 
-        [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
+        [SecurityCritical]
         private class DetectSignificantMouseMove : IMessageFilter
         {
             private const int MOUSE_MOVE = 0x0200;
